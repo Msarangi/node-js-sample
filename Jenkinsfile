@@ -6,7 +6,7 @@ pipeline{
     }
     tools {nodejs "Node-Build"}
     stages {
-        stage('Build') {
+        stage('Install Dependencies') {
             steps {
                 sh'pwd'
                 sh'node --version'
