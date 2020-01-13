@@ -5,7 +5,7 @@ pipeline{
         stage('Build') {
             steps {
                 sh'pwd'
-                sh'cd node-js-sample'
+                //sh'cd node-js-sample'
                 // Run the npm build
                 sh'node --version'
                 sh'npm --version'
