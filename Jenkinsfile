@@ -2,7 +2,7 @@ pipeline{
     agent any
     environment {
         HTTP_PROXY = 'http://proxy.intra.bt.com:8080'
-        HTTPS_PROXY    = 'https://proxy.intra.bt.com:8080'
+        HTTPS_PROXY = 'https://proxy.intra.bt.com:8080'
     }
     tools {nodejs "Node-Build"}
     stages {
@@ -14,5 +14,24 @@ pipeline{
                 sh'npm install'
             }
         }
+        stage('Test') {
+            steps {
+                sh 'npm test'
+            }
+        }
+        //stage('Sonar'){
+            //environment {
+                //scannerHome=tool 'sonar_scanner'
+            //}
+            //steps{
+                //withSonarQubeEnv(credentialsId: '') {
+                  //sh '${scannerHome}/bin/sonar-scanner -Dproject.settings=./sonar-project.properties'
+                  //sh """
+                  //${sonarscanner}/bin/sonar-scanner
+                
+                  //"""
+
+              //}
+        //}    
     }
 }    
