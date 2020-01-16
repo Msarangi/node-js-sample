@@ -19,7 +19,7 @@ pipeline{
                 sh 'npm test'
             }
         }
-        stage('Sonar'){
+        stage('SonarQube'){
             environment {
                 scannerHome=tool 'sonar_scanner'
             }
@@ -31,8 +31,8 @@ pipeline{
                 
                   //"""
                   //sh "${scannerHome}/bin/sonar-scanner"
-
-              }
+                }
+             }
         }    
     }
 }    
