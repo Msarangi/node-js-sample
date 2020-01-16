@@ -11,7 +11,7 @@ pipeline{
                 sh'pwd'
                 sh'node --version'
                 sh'npm --version'
-                sh'npm install'
+                sh'npm install -D sonarqube-scanner'
             }
         }
         stage('Test') {
