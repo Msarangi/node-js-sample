@@ -19,19 +19,20 @@ pipeline{
                 sh 'npm test'
             }
         }
-        //stage('Sonar'){
-            //environment {
-                //scannerHome=tool 'sonar_scanner'
-            //}
-            //steps{
-                //withSonarQubeEnv(credentialsId: '') {
-                  //sh '${scannerHome}/bin/sonar-scanner -Dproject.settings=./sonar-project.properties'
+        stage('Sonar'){
+            environment {
+                scannerHome=tool 'sonar_scanner'
+            }
+            steps{
+                withSonarQubeEnv(credentialsId: 'sonar_token') {
+                  sh '${scannerHome}/bin/sonar-scanner -Dproject.settings=./sonar-project.properties'
                   //sh """
                   //${sonarscanner}/bin/sonar-scanner
                 
                   //"""
+                  //sh "${scannerHome}/bin/sonar-scanner"
 
-              //}
-        //}    
+              }
+        }    
     }
 }    
