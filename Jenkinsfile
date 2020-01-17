@@ -11,8 +11,13 @@ pipeline{
                 sh'pwd'
                 sh'node --version'
                 sh'npm --version'
+                echo "Installing dependencies"
                 sh'npm install -D sonarqube-scanner'
             }
+        }
+        stage ('build') {
+            echo "building"
+            sh 'npm run build'
         }
         stage('Test') {
             steps {
